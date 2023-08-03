@@ -26,6 +26,7 @@ public class UserServiceImp implements UserService {
         return userRepository.findAll();
     }
 
+    @Transactional
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
@@ -38,13 +39,14 @@ public class UserServiceImp implements UserService {
         return foundPerson.orElse(null);
     }
 
+    @Transactional
     @Override
     public void updateUser(long id, User user) {
-
         user.setId(id);
         userRepository.save(user);
     }
 
+    @Transactional
     @Override
     public void deleteUser(long id) {
 
